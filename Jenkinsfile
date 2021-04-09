@@ -3,17 +3,7 @@ pipeline {
     stages {
         stage('---clean---') {
             steps {
-                sh "/opt/maven/bin/mvn clean"
-            }
-        }
-        stage('--test--') {
-            steps {
-                sh "/opt/maven/bin/mvn test"
-            }
-        }
-        stage('--package--') {
-            steps {
-                sh "/opt/maven/bin/mvn package"
+                sh "docker build -t test:latest ."
             }
         }
     }
